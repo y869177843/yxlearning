@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name          yxlearning 德州市专业技术人员继续教育脚本
 // @namespace     无
-// @version       1.8
+// @version       1.8.1
 // @description   下一集自动播放 + 智能续播 + 自动跳题 + 继续教育跳题 + 广告/答题屏蔽 + 自动静音+ 控制台日志
 // @author        根据mumu+AI 1.0 改进版本，by Yang
 // @match         *://sddz.zyk.yxlearning.com/learning/index?*
@@ -16,7 +16,7 @@
 (function() {
     'use strict';
 
-    console.log('[yxlearning脚本] V1.8 脚本已启动 (document-start)。');
+    console.log('[yxlearning脚本] V1.8.1 脚本已启动 (document-start)。');
 
     try {
         const INTERVAL_NEXT_VIDEO = 2000;
