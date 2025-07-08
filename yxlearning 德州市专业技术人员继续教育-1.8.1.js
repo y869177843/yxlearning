@@ -1,13 +1,13 @@
 // ==UserScript==
-// @name          yxlearning 德州市专业技术人员继续教育脚本
-// @namespace     无
-// @version       1.8.1 // 增加版本号以示修改，代表屏蔽规则统一
-// @description   下一集自动播放 + 智能续播 + 自动跳题 + 继续教育跳题 + 广告/答题屏蔽 + 自动静音+ 控制台日志
-// @author        根据mumu+AI 1.0 改进版本，by Yang
-// @match         *://sddz.zyk.yxlearning.com/learning/index?*
-// @match         *://sddz.gxk.yxlearning.com/learning/index?*
-// @grant         none
-// @run-at        document-start
+// @name         yxlearning 德州市专业技术人员继续教育脚本
+// @namespace    无
+// @version      1.8.1
+// @description  下一集自动播放 + 智能续播 + 自动跳题 + 强制音频 + 继续教育跳题 + 广告/答题屏蔽 + 自动静音+ 控制台日志
+// @author       根据mumu+AI 1.0 改进版本，by Yang
+// @match        *://sddz.zyk.yxlearning.com/learning/index?*
+// @match        *://sddz.gxk.yxlearning.com/learning/index?*
+// @grant        none
+// @run-at       document-start
 // @license MIT
 // @downloadURL https://update.greasyfork.org/scripts/541531/yxlearning%20%E5%BE%B7%E5%B7%9E%E5%B8%82%E4%B8%93%E4%B8%9A%E6%8A%80%E6%9C%AF%E4%BA%BA%E5%91%98%E7%BB%A7%E7%BB%AD%E6%95%99%E8%82%B2%E8%84%9A%E6%9C%AC.user.js
 // @updateURL https://update.greasyfork.org/scripts/541531/yxlearning%20%E5%BE%B7%E5%B7%9E%E5%B8%82%E4%B8%93%E4%B8%9A%E6%8A%80%E6%9C%AF%E4%BA%BA%E5%91%98%E7%BB%A7%E7%BB%AD%E6%95%99%E8%82%B2%E8%84%9A%E6%9C%AC.meta.js
