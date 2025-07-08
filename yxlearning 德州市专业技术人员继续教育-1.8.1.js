@@ -1,13 +1,13 @@
 // ==UserScript==
-// @name          yxlearning 德州市专业技术人员继续教育脚本
-// @namespace     无
-// @version       1.8.1
-// @description   下一集自动播放 + 智能续播 + 自动跳题 + 继续教育跳题 + 广告/答题屏蔽 + 自动静音+ 控制台日志
-// @author        根据mumu+AI 1.0 改进版本，by Yang
-// @match         *://sddz.zyk.yxlearning.com/learning/index?*
-// @match         *://sddz.gxk.yxlearning.com/learning/index?*
-// @grant         none
-// @run-at        document-start
+// @name          yxlearning 德州市专业技术人员继续教育脚本
+// @namespace     无
+// @version       1.8.1 // 增加版本号以示修改，代表屏蔽规则统一
+// @description   下一集自动播放 + 智能续播 + 自动跳题 + 继续教育跳题 + 广告/答题屏蔽 + 自动静音+ 控制台日志
+// @author        根据mumu+AI 1.0 改进版本，by Yang
+// @match         *://sddz.zyk.yxlearning.com/learning/index?*
+// @match         *://sddz.gxk.yxlearning.com/learning/index?*
+// @grant         none
+// @run-at        document-start
 // @license MIT
 // @downloadURL https://update.greasyfork.org/scripts/541531/yxlearning%20%E5%BE%B7%E5%B7%9E%E5%B8%82%E4%B8%93%E4%B8%9A%E6%8A%80%E6%9C%AF%E4%BA%BA%E5%91%98%E7%BB%A7%E7%BB%AD%E6%95%99%E8%82%B2%E8%84%9A%E6%9C%AC.user.js
 // @updateURL https://update.greasyfork.org/scripts/541531/yxlearning%20%E5%BE%B7%E5%B7%9E%E5%B8%82%E4%B8%93%E4%B8%9A%E6%8A%80%E6%9C%AF%E4%BA%BA%E5%91%98%E7%BB%A7%E7%BB%AD%E6%95%99%E8%82%B2%E8%84%9A%E6%9C%AC.meta.js
@@ -27,7 +27,7 @@
         const FALLBACK_CHECK_PLAYBACK_DELAY = 5000;
         const INITIAL_PLAY_ATTEMPT_DELAY = 1000;
         const INTERVAL_AUTO_MUTE = 1000;
-        const INTERVAL_REMOVE_ADS = 500; // 调高移除广告的频率
+        // const INTERVAL_REMOVE_ADS = 500; // 这个变量没有实际使用，可以移除
 
         let autoPlayIntervalId = null;
 
@@ -37,16 +37,17 @@
             'sddz.gxk.yxlearning.com': [
                 '.bplayer-question-wrap',
                 '.question-modal-container',
+                '.pv-ask-modal-wrap',
                 '.ad-container',
                 '.popup-wrapper',
-                '.pv-mask' // 新增：可能覆盖全屏的遮罩层
+                '.pv-mask'
             ],
             'sddz.zyk.yxlearning.com': [
                 '.bplayer-question-wrap',
-                '.question-modal-container',
-                '.ad-container',
-                '.popup-wrapper',
-                '.pv-mask' // 新增：可能覆盖全屏的遮罩层
+                '.pv-ask-modal-wrap',
+                '.pv-mask',
+                '.ad-container',   // <--- 新增
+                '.popup-wrapper'  // <--- 新增
             ]
         };
 
@@ -55,7 +56,13 @@
             if (selectorsToHide.length > 0) {
                 const style = document.createElement('style');
                 style.type = 'text/css';
-                style.textContent = selectorsToHide.map(s => `${s} { display: none !important; visibility: hidden !important; opacity: 0 !important; pointer-events: none !important; }`).join('\n');
+                // 确保对 body 和 html 元素的溢出处理，防止滚动条问题
+                style.textContent = `
+                    ${selectorsToHide.map(s => `${s} { display: none !important; visibility: hidden !important; opacity: 0 !important; pointer-events: none !important; }`).join('\n')}
+                    /* 尝试解决某些弹窗导致的背景滚动 */
+                    .modal-open { overflow: hidden !important; }
+                    body:has(.modal-open) { overflow: hidden !important; }
+                `;
                 document.head.appendChild(style);
                 console.log('[早期隐藏] 注入 CSS 规则以隐藏:', selectorsToHide.join(', '));
             }
@@ -269,15 +276,21 @@
          * 尝试跳过视频中的答题弹窗
          */
         function trySkipQuestion() {
-            // 兼容两种网站的答题弹窗
-            const wrap = document.querySelector('.bplayer-question-wrap') || document.querySelector('.question-modal-container');
-            // 注意：因为我们用 CSS 隐藏了，这里 wrap 可能会一直存在但不可见
-            // 所以我们只关注可以点击的按钮
+            // 兼容多种网站的答题弹窗
+            const wrap = document.querySelector('.bplayer-question-wrap') ||
+                         document.querySelector('.question-modal-container') ||
+                         document.querySelector('.pv-ask-modal-wrap');
+
             if (!wrap) return;
 
-            // 兼容两种网站的跳过/完成按钮
-            const skip = wrap.querySelector('.skip.bplayer-btn') || wrap.querySelector('.skip-button');
-            const comp = wrap.querySelector('.complete.bplayer-btn') || wrap.querySelector('.confirm-button');
+            // 兼容多种网站的跳过/完成/提交按钮
+            const skip = wrap.querySelector('.skip.bplayer-btn') ||
+                         wrap.querySelector('.skip-button') ||
+                         wrap.querySelector('.pv-ask-skip');
+
+            const comp = wrap.querySelector('.complete.bplayer-btn') ||
+                         wrap.querySelector('.confirm-button') ||
+                         wrap.querySelector('.pv-ask-submit');
 
             if (skip && skip.offsetParent !== null) { // 检查按钮是否可见且存在
                 console.log('[自动跳题] 点击跳过按钮。');
@@ -285,7 +298,7 @@
                 return; // 找到并点击一个就返回
             }
             if (comp && comp.offsetParent !== null) { // 检查按钮是否可见且存在
-                console.log('[自动跳题] 点击完成按钮。');
+                console.log('[自动跳题] 点击完成/提交按钮。');
                 simulateNaturalClick(comp);
             }
         }
@@ -509,8 +522,6 @@
         setInterval(autoMuteVideo, INTERVAL_AUTO_MUTE);
 
         // 立即移除广告，并设置MutationObserver持续监听并移除新出现的广告
-        // 移除 removeAds() 的立即调用，因为它会在 addCssToHideElements 之前执行
-        // removeAds(); // 移除这一行
         new MutationObserver(removeAds) // 仍然保留这个 MutationObserver 作为额外保障
             .observe(document.body, {
                 childList: true,
