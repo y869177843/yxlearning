@@ -43,7 +43,9 @@
             ],
             'sddz.zyk.yxlearning.com': [
                 '.bplayer-question-wrap',
-                '.pv-ask-modal-wrap',
+                '.question-modal-container',
+                '.ad-container',
+                '.popup-wrapper',
                 '.pv-mask' // 新增：可能覆盖全屏的遮罩层
             ]
         };
