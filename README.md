@@ -4,14 +4,14 @@
 
 适用于：zyk.yxlearning.com   和    gxk.yxlearning.com
 
-如果对您有帮助，欢迎赞助
-
-![231332812de722e0af542cf58ad0749](https://github.com/user-attachments/assets/f010b814-0292-4bf2-adfb-8cf65de7e69c)
-
-
 导入油猴脚本使用，浏览器需开启开发者模式
 
 注意事项：在某些情况下需要自己点击进度条跳转进度，刷课尚不能完全自动化。
+
+如果对您有帮助，欢迎赞助
+![231332812de722e0af542cf58ad0749](https://github.com/user-attachments/assets/f010b814-0292-4bf2-adfb-8cf65de7e69c)
+
+版本更新记录：
 
 2025.7.10 版本 2.0 扩大脚本适配范围
 
