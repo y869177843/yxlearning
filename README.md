@@ -1,8 +1,8 @@
 # yxlearning大众云学继续教育脚本
 
-功能：智能续播 (强化) + 自动跳题/答题屏蔽 + 静音 + 控制台日志，根据mumu+AI 1.0 使用Gemini改进。适用于大众云学平台yxlearning.com，
+功能：智能续播 (强化) + 自动跳题/答题屏蔽 + 静音 + 控制台日志，根据mumu+AI 1.0 使用Gemini改进。
 
-适用于：zyk.yxlearning.com   和    gxk.yxlearning.com
+适用于大众云学平台yxlearning.com中的公需课和专业课内容。
 
 导入油猴脚本使用，浏览器需开启开发者模式
 
