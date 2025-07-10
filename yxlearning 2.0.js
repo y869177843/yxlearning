@@ -3,7 +3,7 @@
 // @namespace     无
 // @version       2.0
 // @description   智能续播 (强化) + 自动跳题/答题屏蔽 + 静音 + 控制台日志
-// @author        根据mumu+AI 1.0 改进版本，by Yang (改进版)
+// @author        根据mumu+AI 1.0 使用Gemini改进，by Yang
 // @match         *://*.zyk.yxlearning.com/learning/index?*
 // @match         *://*.gxk.yxlearning.com/learning/index?*
 // @grant         none
