@@ -2,7 +2,7 @@
 
 德州市专业技术人员继续教育脚本
 
-使用Gemini修改greasyfork中wu xin (mumu27)编写的yxlearning 继续教育脚本 1.0：https://greasyfork.org/zh-CN/scripts/537073-yxlearning-%E7%BB%A7%E7%BB%AD%E6%95%99%E8%82%B2%E8%84%9A%E6%9C%AC
+
 
 功能：下一集自动播放 + 智能续播 + 自动跳题 + 继续教育跳题 + 广告/答题屏蔽 + 自动静音+ 控制台日志
 
@@ -17,3 +17,7 @@
 1.7版本 删除 1.6 版本中的视频转音频功能
 
 Greasyfork脚本地址：https://greasyfork.org/zh-CN/scripts/541531-yxlearning-%E5%BE%B7%E5%B7%9E%E5%B8%82%E4%B8%93%E4%B8%9A%E6%8A%80%E6%9C%AF%E4%BA%BA%E5%91%98%E7%BB%A7%E7%BB%AD%E6%95%99%E8%82%B2%E8%84%9A%E6%9C%AC
+
+脚本使用GEMINI编写
+
+鸣谢：wu xin (mumu27)编写的yxlearning 继续教育脚本 1.0：https://greasyfork.org/zh-CN/scripts/537073-yxlearning-%E7%BB%A7%E7%BB%AD%E6%95%99%E8%82%B2%E8%84%9A%E6%9C%AC
