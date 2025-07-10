@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name          yxlearning 德州市专业技术人员继续教育脚本
+// @name          大众云学继续教育脚本：yxlearning
 // @namespace     无
 // @version       2.0
 // @description   下一集自动播放 + 智能续播 (强化) + 自动跳题 + 强制音频 + 继续教育跳题 + 广告/答题屏蔽 + 自动静音 + 控制台日志
