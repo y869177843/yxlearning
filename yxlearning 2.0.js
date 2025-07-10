@@ -2,7 +2,7 @@
 // @name          大众云学继续教育脚本：yxlearning
 // @namespace     无
 // @version       2.0
-// @description   下一集自动播放 + 智能续播 (强化) + 自动跳题 + 强制音频 + 继续教育跳题 + 广告/答题屏蔽 + 自动静音 + 控制台日志
+// @description   智能续播 (强化) + 自动跳题/答题屏蔽 + 静音 + 控制台日志
 // @author        根据mumu+AI 1.0 改进版本，by Yang (改进版)
 // @match         *://*.zyk.yxlearning.com/learning/index?*
 // @match         *://*.gxk.yxlearning.com/learning/index?*
