@@ -1,8 +1,13 @@
 # yxlearning大众云学继续教育脚本
 
-功能：下一集自动播放 + 智能续播 + 自动跳题 + 继续教育跳题 + 广告/答题屏蔽 + 自动静音+ 控制台日志
+功能：智能续播 (强化) + 自动跳题/答题屏蔽 + 静音 + 控制台日志，根据mumu+AI 1.0 使用Gemini改进。适用于大众云学平台yxlearning.com，
 
-适用于：http://sddz.zyk.yxlearning.com/   和    http://sddz.gxk.yxlearning.com/
+适用于：zyk.yxlearning.com   和    gxk.yxlearning.com
+
+如果对您有帮助，欢迎赞助
+
+![231332812de722e0af542cf58ad0749](https://github.com/user-attachments/assets/f010b814-0292-4bf2-adfb-8cf65de7e69c)
+
 
 导入油猴脚本使用，浏览器需开启开发者模式
 
@@ -16,8 +21,3 @@
 
 1.7版本 删除 1.6 版本中的视频转音频功能
 
-Greasyfork脚本地址：https://greasyfork.org/zh-CN/scripts/541531-yxlearning-%E5%BE%B7%E5%B7%9E%E5%B8%82%E4%B8%93%E4%B8%9A%E6%8A%80%E6%9C%AF%E4%BA%BA%E5%91%98%E7%BB%A7%E7%BB%AD%E6%95%99%E8%82%B2%E8%84%9A%E6%9C%AC
-
-脚本使用GEMINI编写
-
-鸣谢：wu xin (mumu27)编写的yxlearning 继续教育脚本 1.0：https://greasyfork.org/zh-CN/scripts/537073-yxlearning-%E7%BB%A7%E7%BB%AD%E6%95%99%E8%82%B2%E8%84%9A%E6%9C%AC
