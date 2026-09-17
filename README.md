@@ -1,3 +1,5 @@
+脚本运行在油猴插件上，greasyfork地址：https://greasyfork.org/zh-CN/scripts/542216-%E5%A4%A7%E4%BC%97%E4%BA%91%E5%AD%A6-yxlearning-%E8%87%AA%E5%8A%A8%E5%AD%A6%E4%B9%A0-%E9%87%8D%E6%9E%84%E7%89%88
+
 脚本理论上支持全山东的课程学习，目前在德州、东营测试通过。
 
 3.0版本代码全部重写，在原版本功能基础上，加入继续学习未完成课程的功能。
